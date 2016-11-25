@@ -8,8 +8,8 @@ var moment = require("moment");
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })
 
-const API_KEY = process.env.API_KEY;
-const CSE_ID = process.env.GOOGLE_CSE_ID;
+var API_KEY = process.env.API_KEY;
+var CSE_ID = process.env.GOOGLE_CSE_ID;
 const db_url = process.env.MONGOLAB_URI;
 
 var app = express();
@@ -54,7 +54,7 @@ app.get("/api/imagesearch/:s_param", function(request, response){
 app.get("/api/latest", function(request, response){
   MongoClient.connect(db_url, function(err, db) {
     assert.equal(null, err);
-    db.collection("imagesearch_log").find({}, function(err2, result){
+    db.collection("imagesearch_log").find(function(err2, result){
       if (err2) {
         response.end('Encountered error retrieving lastest image search: ', err2);
       } else {
@@ -75,5 +75,5 @@ app.get("/", function(req,res){
 });
 
 var server = http.createServer(app);
-server.listen(process.env.PORT || 8081);
+server.listen(process.env.PORT || 8080);
 console.log("app started");

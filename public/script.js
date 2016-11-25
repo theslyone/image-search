@@ -7,6 +7,7 @@ $(document).ready(function(){
     location.href = path;
   });
   $("button.latest").on("click", function(e){
-    location.href = location.hostname + "/api/latest";
+    var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+    location.href = full + "/api/latest";
   });
 });
