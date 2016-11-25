@@ -5,10 +5,12 @@ var google = require('googleapis');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var moment = require("moment");
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 const API_KEY = 'AIzaSyCdxl0vCH_vXT-ijYqADbEO5WXFfMHHtYQ';
 const CSE_ID = '007375434282591706073:jvjnxmqnnjo';
-const db_url = process.env.MONGOLAB_URI;
+const db_url = 'mongodb://localhost:27017/learnyoumongo';//process.env.MONGOLAB_URI;
 
 var app = express();
 app.set('views', __dirname + '/views');
@@ -63,10 +65,15 @@ app.get("/api/latest", function(request, response){
   });
 });
 
+app.post('/api/upload', upload.single('uploadFile'), function (req, res, next) {
+    res.writeHead(200, { "Content-Type": "text/plain"});
+    res.end(JSON.stringify({ size: req.file.size }, null, "  "));
+});
+
 app.get("/", function(req,res){
   res.render('index');
-})
+});
 
 var server = http.createServer(app);
-server.listen(process.env.PORT || 8080);
+server.listen(process.env.PORT || 8081);
 console.log("app started");

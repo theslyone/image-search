@@ -3,6 +3,8 @@ html
 		title Image Search Abstraction Layer
 		link(rel='stylesheet' href='semantic.css')
 		link(rel='stylesheet' href='style.css')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+		script(src='script.js')
 	body
 		div.ui.container
 			h1.ui.header FreeCodeCamp API Basejump: Image Search Abstraction Layer
@@ -11,6 +13,26 @@ html
 				ol
 					li I can pass a search query parameter and I will receive a search response array.
 					li I can view the latest search list.
+					li I can upload a file and get a response with the file size.
+
+			div.ui.mini.form
+				div.four.fields
+					div.field
+						input#image-search.image-search(type='text', placeholder='Enter image search here' autofocus)
+					div.field
+						input#offset(type='number', placeholder='Enter offset here')
+					div.field
+						button.ui.green.search.button Search
+					div.field
+						button.ui.mini.red.latest.button Latest
+
+			br
+			form.ui.mini.form(id="fileForm", method="POST", action="/api/upload", enctype="multipart/form-data")
+				div.two.fields
+					div.field
+						input(name="uploadFile",type="file")
+					div.field
+						button.ui.mini.blue.submit.button Upload
 
 			h2 Example search usage:
 			code https://sg-image-search.herokuapp.com/api/imagesearch/lol cats
@@ -30,7 +52,7 @@ html
 			h2 Example latest Usage:
 			code https://sg-image-search.herokuapp.com/api/latest
 
-			h2 Will redirect to:
+			h2 Example latest output:
 			code [
 				| {"term":"lolcats funny","when":"2016-11-25T08:19:52.770Z"},
 				| {"term":"lolcats funny","when":"2016-11-25T07:33:14.260Z"},
@@ -43,3 +65,5 @@ html
 				| {"term":"lolcats funny","when":"2016-11-25T04:30:33.658Z"},
 				| {"term":"cat","when":"2016-11-25T04:29:52.820Z"}
 			| ]
+			br
+			br
