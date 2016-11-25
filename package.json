@@ -1,0 +1,32 @@
+{
+  "name": "image-search",
+  "version": "1.0.0",
+  "description": "demo image search abstraction layer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theslyone/image-search.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "author": "Okonkwo Sylvester <theslyguy@icloud.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theslyone/image-search/issues"
+  },
+  "homepage": "https://github.com/theslyone/image-search#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "fotology": "^1.2.2",
+    "google-images": "^2.0.0",
+    "google-ims": "^1.1.4",
+    "googleapis": "^14.2.0",
+    "node-google-image-search": "^1.0.2"
+  }
+}
