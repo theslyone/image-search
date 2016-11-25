@@ -8,7 +8,7 @@ var moment = require("moment");
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })
 
-var API_KEY = process.env.API_KEY;
+var API_KEY = process.env.GOOGLE_API_KEY;
 var CSE_ID = process.env.GOOGLE_CSE_ID;
 const db_url = process.env.MONGOLAB_URI;
 
