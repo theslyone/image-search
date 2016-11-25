@@ -20,11 +20,11 @@ app.get("/api/imagesearch/:s_param", function(request, response){
     searchType: 'image',
     start: 1
   };
-  customsearch.cse.list(params, function(err, response){
+  customsearch.cse.list(params, function(err, result){
     if (err) {
       response.end('Encountered error 2', err);
     } else {
-      response.end(JSON.stringify(response, null, 4));
+      response.end(JSON.stringify(result, null, 4));
     }
   });
 
@@ -47,18 +47,3 @@ app.get("/api/imagesearch/:s_param", function(request, response){
 var server = http.createServer(app);
 server.listen(process.env.PORT || 8080);
 console.log("app started");
-
-
-var urlshortener = google.urlshortener('v1');
-var params = {
-  shortUrl: 'http://goo.gl/xKbRu3'
-};
-
-// get the long url of a shortened url
-urlshortener.url.get(params, function (err, response) {
-  if (err) {
-    console.log('Encountered error', err);
-  } else {
-    console.log('Long url is', response.longUrl);
-  }
-});
