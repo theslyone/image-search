@@ -7,6 +7,6 @@ $(document).ready(function(){
     location.href = path;
   });
   $("button.latest").on("click", function(e){
-    location.href = location.hostname + "/api/lastest";
+    location.href = location.hostname + "/api/latest";
   });
 });
