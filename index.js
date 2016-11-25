@@ -10,7 +10,7 @@ var upload = multer({ dest: 'uploads/' })
 
 const API_KEY = 'AIzaSyCdxl0vCH_vXT-ijYqADbEO5WXFfMHHtYQ';
 const CSE_ID = '007375434282591706073:jvjnxmqnnjo';
-const db_url = 'mongodb://localhost:27017/learnyoumongo';//process.env.MONGOLAB_URI;
+const db_url = process.env.MONGOLAB_URI;
 
 var app = express();
 app.set('views', __dirname + '/views');
